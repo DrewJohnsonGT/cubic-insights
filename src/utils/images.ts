@@ -5,19 +5,13 @@ export interface AppImage {
 }
 
 export enum AppImageKey {
-  LogoFull = 'logoFull',
-  LogoSmall = 'logoSmall',
+  Logo = 'logo',
 }
 
 export const IMAGES: Record<AppImageKey, AppImage> = {
-  [AppImageKey.LogoFull]: {
-    src: '/logo-full.png',
+  [AppImageKey.Logo]: {
+    src: '/logo.png',
     width: 128,
     height: 128,
-  },
-  [AppImageKey.LogoSmall]: {
-    src: '/logo-small.png',
-    width: 64,
-    height: 64,
   },
 };
