@@ -14,19 +14,21 @@ export default function HomePage() {
       <div className="absolute right-4 top-4 z-10">
         <ThemeToggle />
       </div>
-      <div className="relative flex size-full items-center justify-center gap-24">
-        <div className="relative">
-          {Array.from({ length: NUM_CUBES }).map((_, i) => (
-            <Cube
-              key={i}
-              size={`${STARTING_CUBE_SIZE + i * CUBE_SIZE_DIFFERENCE}rem`}
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-            />
-          ))}
+      <div className="relative flex size-full items-center justify-center">
+        <div className="flex flex-col items-center gap-24 md:flex-row">
+          <div className="relative">
+            {Array.from({ length: NUM_CUBES }).map((_, i) => (
+              <Cube
+                key={i}
+                size={`${STARTING_CUBE_SIZE + i * CUBE_SIZE_DIFFERENCE}rem`}
+                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+              />
+            ))}
+          </div>
+          <h1 className="text-5xl font-bold leading-none text-foreground">
+            {APP_NAME}
+          </h1>
         </div>
-        <h1 className="text-5xl font-bold leading-none text-foreground">
-          {APP_NAME}
-        </h1>
       </div>
     </div>
   );
