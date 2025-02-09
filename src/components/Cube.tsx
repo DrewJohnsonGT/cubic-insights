@@ -40,7 +40,7 @@ export const Cube = () => {
           <div
             key={position}
             className={clsx(
-              'absolute flex h-[var(--cubeSize)] w-[var(--cubeSize)] items-center justify-center border-2 border-border',
+              'absolute flex h-[var(--cubeSize)] w-[var(--cubeSize)] items-center justify-center border-2 border-foreground',
               sideClasses[position as keyof typeof sideClasses],
             )}
           />
