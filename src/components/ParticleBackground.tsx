@@ -80,14 +80,14 @@ export const ParticleBackground = () => {
             default: 'bounce' as const,
           },
           random: false,
-          speed: 6,
+          speed: 2,
           straight: false,
         },
         number: {
           density: {
             enable: true,
           },
-          value: 80,
+          value: 160,
         },
         opacity: {
           value: 0.5,
@@ -96,10 +96,11 @@ export const ParticleBackground = () => {
           type: 'circle',
         },
         size: {
-          value: { min: 1, max: 5 },
+          value: { min: 0.25, max: 3 },
         },
       },
       detectRetina: true,
+      zIndex: 1,
     }),
     [foreground, background],
   );
