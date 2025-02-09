@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { LoadingSpinner } from './LoadingSpinner';
-import { Tooltip, TooltipContent, TooltipTrigger } from './Tooltip';
 import { Slot } from '@radix-ui/react-slot';
 import type { VariantProps } from 'class-variance-authority';
 import { cva } from 'class-variance-authority';
@@ -67,9 +66,6 @@ export interface ButtonProps
   asChild?: boolean;
   loading?: boolean;
   loadingMessage?: string;
-  tooltip?: string | React.ReactNode;
-  tooltipDelay?: number;
-  tooltipSide?: 'top' | 'right' | 'bottom' | 'left';
 }
 
 const ButtonLoadingContent = ({
@@ -98,14 +94,11 @@ const Button: React.FC<React.ComponentProps<'button'> & ButtonProps> = ({
   loading,
   loadingMessage = 'Loading...',
   size,
-  tooltip,
-  tooltipDelay = 0,
-  tooltipSide = 'top',
   variant,
   ...props
 }) => {
   const Comp = asChild ? Slot : 'button';
-  const buttonContent = (
+  return (
     <Comp
       className={cn(buttonVariants({ className, color, size, variant }))}
       disabled={props.disabled}
@@ -117,15 +110,6 @@ const Button: React.FC<React.ComponentProps<'button'> & ButtonProps> = ({
         props.children
       )}
     </Comp>
-  );
-
-  return tooltip ? (
-    <Tooltip delayDuration={tooltipDelay}>
-      <TooltipTrigger asChild>{buttonContent}</TooltipTrigger>
-      <TooltipContent side={tooltipSide}>{tooltip}</TooltipContent>
-    </Tooltip>
-  ) : (
-    buttonContent
   );
 };
 

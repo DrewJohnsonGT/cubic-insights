@@ -1,5 +1,3 @@
-const IMAGES_DIR = '/images';
-
 export interface AppImage {
   src: string;
   width: number;

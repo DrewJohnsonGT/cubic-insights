@@ -1,7 +1,7 @@
-// @ts-ignore
+// @ts-expect-error - No type definitions for @next/eslint-plugin-next
 import nextPlugin from '@next/eslint-plugin-next';
 import react from 'eslint-plugin-react';
-// @ts-ignore
+// @ts-expect-error - No type definitions for eslint-plugin-react-hooks
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import sort from 'eslint-plugin-sort';
 import tailwind from 'eslint-plugin-tailwindcss';

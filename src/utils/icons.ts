@@ -5,7 +5,7 @@ import {
   LuInfo,
   LuMailQuestion,
   LuMessageCircle,
-  LuSettings
+  LuSettings,
 } from 'react-icons/lu';
 
 export enum Icons {

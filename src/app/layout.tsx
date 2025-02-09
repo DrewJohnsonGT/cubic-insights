@@ -1,7 +1,6 @@
 import { type Metadata } from 'next';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { DM_Sans } from 'next/font/google';
-import { TRPCReactProvider } from '~/trpc/react';
 import { APP_DESCRIPTION, APP_KEYWORDS, APP_NAME } from '~/utils/constants';
 
 import './globals.css';
@@ -24,11 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${dmSans.variable}`} suppressHydrationWarning>
       <body>
-        <TRPCReactProvider>
-          <NextThemesProvider attribute="class">
-                {children}
-          </NextThemesProvider>
-        </TRPCReactProvider>
+        <NextThemesProvider attribute="class">{children}</NextThemesProvider>
       </body>
     </html>
   );
