@@ -80,7 +80,7 @@ export const ParticleBackground = () => {
             default: 'bounce' as const,
           },
           random: false,
-          speed: 2,
+          speed: 0.5,
           straight: false,
         },
         number: {
