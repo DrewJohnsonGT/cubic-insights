@@ -1,6 +1,9 @@
 import { Cube } from '~/components/Cube';
+import { Founders } from '~/components/Founders';
 import { ParticleBackground } from '~/components/ParticleBackground';
+import { Products } from '~/components/Products';
 import { ThemeToggle } from '~/components/ThemeToggle';
+import { ScrollArea } from '~/components/ui/ScrollArea';
 import { APP_NAME } from '~/utils/constants';
 
 const NUM_CUBES = 5;
@@ -10,27 +13,33 @@ const STARTING_CUBE_SIZE = 3;
 export default function HomePage() {
   return (
     <div className="relative h-screen w-screen">
-      <ParticleBackground />
-      <div className="absolute right-4 top-4 z-10">
-        <ThemeToggle />
-      </div>
-      <div className="relative flex size-full flex-col items-center justify-center gap-32">
-        <div className="flex flex-col items-center gap-24 md:flex-row">
-          <div className="relative">
-            {Array.from({ length: NUM_CUBES }).map((_, i) => (
-              <Cube
-                key={i}
-                size={`${STARTING_CUBE_SIZE + i * CUBE_SIZE_DIFFERENCE}rem`}
-                className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-              />
-            ))}
-          </div>
-          <h1 className="text-5xl font-bold leading-none text-foreground">
-            {APP_NAME}
-          </h1>
+      <ScrollArea className="h-screen w-screen">
+        <ParticleBackground />
+        <div className="absolute right-4 top-4 z-10">
+          <ThemeToggle />
         </div>
-        <div className="text-xs italic text-muted-foreground">Coming soon</div>
-      </div>
+        <div className="relative flex size-full flex-col items-center justify-center gap-32">
+          <div className="flex flex-col items-center gap-24 md:flex-row">
+            <div className="relative">
+              {Array.from({ length: NUM_CUBES }).map((_, i) => (
+                <Cube
+                  key={i}
+                  size={`${STARTING_CUBE_SIZE + i * CUBE_SIZE_DIFFERENCE}rem`}
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                />
+              ))}
+            </div>
+            <h1 className="text-5xl font-bold leading-none text-foreground">
+              {APP_NAME}
+            </h1>
+          </div>
+          <div className="text-xs italic text-muted-foreground">
+            Coming soon
+          </div>
+          <Products />
+          <Founders />
+        </div>
+      </ScrollArea>
     </div>
   );
 }
