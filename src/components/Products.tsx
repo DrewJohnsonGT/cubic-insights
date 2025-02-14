@@ -17,7 +17,7 @@ const PRODUCTS: Product[] = [
       'Streamline paperwork, manage data efficiently, and focus more time on supporting families through effective intervention.',
       'Built with security and HIPAA compliance at its core.',
     ],
-    logo: IMAGES.logo,
+    logo: IMAGES.PCITTrackerLogo,
     images: [
       {
         light: IMAGES.PCITTracker1,
@@ -29,32 +29,27 @@ const PRODUCTS: Product[] = [
 
 function ProductCard({ name, description, logo, images }: Product) {
   return (
-    <Card className="mx-auto max-w-4xl overflow-hidden rounded-lg border-none bg-transparent shadow-none">
+    <Card className="mx-auto max-w-4xl overflow-hidden">
       <div className="flex flex-col items-center gap-8">
-        <div className="relative h-32 w-full">
-          <div className="absolute bottom-0 z-0 size-[120px] w-full bg-primary" />
-          <div className="relative z-10">
-            <Image
-              src={logo.src}
-              alt={`${name} logo`}
-              width={logo.width}
-              height={logo.height}
-              className="h-32 w-full object-contain"
-              aria-label={`${name} logo`}
-            />
-          </div>
-        </div>
-        <CardHeader className="bg-card p-4 text-center">
+        <Image
+          src={logo.src}
+          alt={`${name} logo`}
+          width={logo.width}
+          height={logo.height}
+          className="h-32 w-full object-contain"
+          aria-label={`${name} logo`}
+        />
+        <CardHeader className="text-center">
           <CardTitle>{name}</CardTitle>
         </CardHeader>
-        <CardContent className="flex-1 bg-card p-4">
+        <CardContent className="max-w-lg flex-1">
           {description.map((paragraph, index) => (
-            <p className="mb-4" key={index}>
+            <p className="mb-2" key={index}>
               {paragraph}
             </p>
           ))}
         </CardContent>
-        <div className="w-full">
+        <div className="w-full max-w-lg">
           {images.map(({ light, dark }, index) => (
             <div key={index} className="relative">
               <Image

@@ -22,7 +22,7 @@ export const IMAGES: Record<AppImageKey, AppImage> = {
     height: 500,
   },
   [AppImageKey.Logo]: {
-    src: '/logo.webp',
+    src: '/logo.png',
     width: 128,
     height: 128,
   },

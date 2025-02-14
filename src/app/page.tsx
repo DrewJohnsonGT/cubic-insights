@@ -13,12 +13,12 @@ const STARTING_CUBE_SIZE = 3;
 export default function HomePage() {
   return (
     <div className="relative h-screen w-screen">
-      <ScrollArea className="h-screen w-screen">
+      <ScrollArea className="h-screen w-screen pb-4">
         <ParticleBackground />
         <div className="absolute right-4 top-4 z-10">
           <ThemeToggle />
         </div>
-        <div className="relative flex size-full flex-col items-center justify-center gap-32">
+        <div className="relative flex size-full flex-col items-center justify-center gap-32 pt-16">
           <div className="flex flex-col items-center gap-24 md:flex-row">
             <div className="relative">
               {Array.from({ length: NUM_CUBES }).map((_, i) => (
@@ -32,9 +32,6 @@ export default function HomePage() {
             <h1 className="text-5xl font-bold leading-none text-foreground">
               {APP_NAME}
             </h1>
-          </div>
-          <div className="text-xs italic text-muted-foreground">
-            Coming soon
           </div>
           <Products />
           <Founders />
