@@ -32,17 +32,17 @@ export const IMAGES: Record<AppImageKey, AppImage> = {
     height: 609,
   },
   [AppImageKey.PCITTrackerLogo]: {
-    src: '/pcit-tracker-logo.webp',
+    src: `${IMAGES_DIR}/pcit-tracker-logo.webp`,
     width: 128,
     height: 128,
   },
   [AppImageKey.PCITTracker1]: {
-    src: '/pcit-tracker-1.webp',
+    src: `${IMAGES_DIR}/pcit-tracker-1.png`,
     width: 2000,
     height: 1168,
   },
   [AppImageKey.PCITTracker1Dark]: {
-    src: '/pcit-tracker-1-dark.webp',
+    src: `${IMAGES_DIR}/pcit-tracker-1-dark.png`,
     width: 2000,
     height: 1168,
   },
