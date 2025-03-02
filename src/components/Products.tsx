@@ -25,6 +25,12 @@ const PRODUCTS: Product[] = [
       },
     ],
   },
+  {
+    name: 'Handle With Care Portal',
+    description: ['Coming Soon!'],
+    logo: IMAGES.HandleWithCarePortalLogo,
+    images: [],
+  },
 ];
 
 function ProductCard({ name, description, logo, images }: Product) {

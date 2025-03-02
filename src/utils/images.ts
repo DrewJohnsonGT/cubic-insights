@@ -11,6 +11,7 @@ export enum AppImageKey {
   PCITTrackerLogo = 'PCITTrackerLogo',
   PCITTracker1 = 'PCITTracker1',
   PCITTracker1Dark = 'PCITTracker1Dark',
+  HandleWithCarePortalLogo = 'HandleWithCarePortalLogo',
 }
 
 const IMAGES_DIR = '/images';
@@ -45,5 +46,10 @@ export const IMAGES: Record<AppImageKey, AppImage> = {
     src: `${IMAGES_DIR}/pcit-tracker-1-dark.png`,
     width: 2000,
     height: 1168,
+  },
+  [AppImageKey.HandleWithCarePortalLogo]: {
+    src: `${IMAGES_DIR}/handle-with-care-logo.webp`,
+    width: 128,
+    height: 128,
   },
 };
