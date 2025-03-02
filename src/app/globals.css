@@ -103,10 +103,6 @@
 :root {
   --cubeSize: 200px;
   --translateZ: calc(var(--cubeSize) / 2);
-  --lightOrange: #ff9651;
-  --orange: #ff7400;
-  --red: #ff0000;
-  --yellow: #ff9900;
 }
 
 @layer base {

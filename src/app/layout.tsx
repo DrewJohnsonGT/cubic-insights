@@ -1,7 +1,12 @@
 import { type Metadata } from 'next';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { DM_Sans } from 'next/font/google';
-import { APP_DESCRIPTION, APP_KEYWORDS, APP_NAME } from '~/utils/constants';
+import {
+  APP_DESCRIPTION,
+  APP_KEYWORDS,
+  APP_NAME,
+  APP_SLOGAN,
+} from '~/utils/constants';
 import { IMAGES } from '~/utils/images';
 
 import './globals.css';
@@ -39,7 +44,7 @@ export const metadata: Metadata = {
     images: [{ url: IMAGES.logo.src }],
   },
   title: {
-    default: `${APP_NAME} | Advanced Healthcare Solutions, Expertly Crafted`,
+    default: `${APP_NAME} | ${APP_SLOGAN}`,
     template: `%s - ${APP_NAME}`,
   },
   twitter: {

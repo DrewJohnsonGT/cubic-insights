@@ -14,7 +14,7 @@ export enum AppImageKey {
   HandleWithCarePortalLogo = 'HandleWithCarePortalLogo',
 }
 
-const IMAGES_DIR = '/images';
+export const IMAGES_DIR = '/images';
 
 export const IMAGES: Record<AppImageKey, AppImage> = {
   [AppImageKey.Drew]: {
@@ -23,9 +23,9 @@ export const IMAGES: Record<AppImageKey, AppImage> = {
     height: 500,
   },
   [AppImageKey.Logo]: {
-    src: '/logo.png',
-    width: 128,
-    height: 128,
+    src: `${IMAGES_DIR}/logo.svg`,
+    width: 200,
+    height: 200,
   },
   [AppImageKey.Madeline]: {
     src: `${IMAGES_DIR}/madeline.webp`,
@@ -33,9 +33,9 @@ export const IMAGES: Record<AppImageKey, AppImage> = {
     height: 609,
   },
   [AppImageKey.PCITTrackerLogo]: {
-    src: `${IMAGES_DIR}/pcit-tracker-logo.webp`,
-    width: 128,
-    height: 128,
+    src: `${IMAGES_DIR}/pcit-tracker-logo.svg`,
+    width: 200,
+    height: 200,
   },
   [AppImageKey.PCITTracker1]: {
     src: `${IMAGES_DIR}/pcit-tracker-1.png`,
