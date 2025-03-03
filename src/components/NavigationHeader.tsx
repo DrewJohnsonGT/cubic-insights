@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { LuMenu } from 'react-icons/lu';
+import { Cube } from '~/components/Cube';
 import { ThemeToggle } from '~/components/ThemeToggle';
 import { Button } from '~/components/ui/Button';
 import {
@@ -8,8 +9,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '~/components/ui/DropdownMenu';
-import { APP_NAME } from '~/utils/constants';
-import { IMAGES } from '~/utils/images';
+
+const NUM_CUBES = 5;
+const CUBE_SIZE_DIFFERENCE = 0.5;
+const STARTING_CUBE_SIZE = 0.5;
 
 const HEADER_LINKS = [
   {
@@ -34,13 +37,19 @@ export const NavigationHeader = () => {
   return (
     <header className="fixed inset-x-0 top-0 z-50 h-14 items-center bg-transparent p-2">
       <div className="mx-auto flex w-full max-w-2xl items-center justify-between gap-2 rounded-lg border border-border bg-background/20 px-4 backdrop-blur-md lg:px-6">
-        <Link href="#" aria-label="Home" prefetch={false}>
-          <img
-            src={IMAGES.logo.src}
-            alt={APP_NAME}
-            className="-ml-4 h-16 shrink-0"
-          />
-          <span className="sr-only">{APP_NAME}</span>
+        <Link
+          href="#"
+          aria-label="Home"
+          prefetch={false}
+          className="relative flex items-center justify-center"
+        >
+          {Array.from({ length: NUM_CUBES }).map((_, i) => (
+            <Cube
+              key={i}
+              size={`${STARTING_CUBE_SIZE + i * CUBE_SIZE_DIFFERENCE}rem`}
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+            />
+          ))}
         </Link>
         <nav className="mx-auto hidden flex-1 items-center justify-center gap-4 sm:gap-6 md:flex">
           {HEADER_LINKS.map((link, index) => (
