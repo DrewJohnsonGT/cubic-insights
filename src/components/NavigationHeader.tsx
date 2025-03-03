@@ -9,9 +9,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '~/components/ui/DropdownMenu';
+import { APP_NAME } from '~/utils/constants';
 
 const NUM_CUBES = 5;
-const CUBE_SIZE_DIFFERENCE = 0.5;
+const CUBE_SIZE_DIFFERENCE = 0.65;
 const STARTING_CUBE_SIZE = 0.5;
 
 const HEADER_LINKS = [
@@ -35,13 +36,13 @@ const HEADER_LINKS = [
 
 export const NavigationHeader = () => {
   return (
-    <header className="fixed inset-x-0 top-0 z-50 h-14 items-center bg-transparent p-2">
-      <div className="mx-auto flex w-full max-w-2xl items-center justify-between gap-2 rounded-lg border border-border bg-background/20 px-4 backdrop-blur-md lg:px-6">
+    <header className="fixed inset-x-0 top-0 z-50 flex h-20 items-center bg-transparent p-2">
+      <div className="mx-auto flex size-full max-w-4xl flex-1 items-center justify-between gap-2 rounded-lg border border-border bg-background/20 px-4 backdrop-blur-md lg:px-6">
         <Link
           href="#"
           aria-label="Home"
           prefetch={false}
-          className="relative flex items-center justify-center"
+          className="relative ml-2 mr-8"
         >
           {Array.from({ length: NUM_CUBES }).map((_, i) => (
             <Cube
@@ -51,6 +52,7 @@ export const NavigationHeader = () => {
             />
           ))}
         </Link>
+        <span className="text-lg font-bold">{APP_NAME}</span>
         <nav className="mx-auto hidden flex-1 items-center justify-center gap-4 sm:gap-6 md:flex">
           {HEADER_LINKS.map((link, index) => (
             <Link
