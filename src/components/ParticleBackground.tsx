@@ -10,7 +10,6 @@ export const ParticleBackground = () => {
 
   const [init, setInit] = useState(false);
   const [foreground, setForeground] = useState<string>('#2B261F');
-  const [background, setBackground] = useState<string>('#FAF8F5');
 
   // Load tsparticles engine once
   useEffect(() => {
@@ -26,10 +25,8 @@ export const ParticleBackground = () => {
     requestAnimationFrame(() => {
       const computedStyle = getComputedStyle(document.documentElement);
       const fgValue = computedStyle.getPropertyValue('--foreground').trim();
-      const bgValue = computedStyle.getPropertyValue('--background').trim();
 
       setForeground(`hsl(${fgValue})`);
-      setBackground(`hsl(${bgValue})`);
     });
   }, [resolvedTheme]);
 
@@ -37,7 +34,7 @@ export const ParticleBackground = () => {
     () => ({
       background: {
         color: {
-          value: background,
+          value: 'transparent',
         },
       },
       fpsLimit: 120,
@@ -102,7 +99,7 @@ export const ParticleBackground = () => {
       detectRetina: true,
       zIndex: 1,
     }),
-    [foreground, background],
+    [foreground],
   );
 
   if (init) {

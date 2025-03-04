@@ -19,17 +19,22 @@ export default function HomePage() {
         <NavigationHeader />
         <div className="relative flex size-full flex-col items-center justify-center">
           <div className="flex flex-col gap-4">
-            <Card className="my-32 flex flex-col items-center gap-20 bg-background/20 p-10 backdrop-blur-sm md:flex-row">
+            <div className="my-32 flex flex-col items-center gap-20 bg-background/20 p-10 backdrop-blur-sm md:flex-row">
               <ParticleBackground />
               <div className="flex flex-col gap-4">
                 <h1 className="text-5xl font-bold leading-none text-foreground">
                   {APP_NAME}
                 </h1>
                 <h2 className="text-2xl font-bold italic leading-none text-primary">
-                  {APP_SLOGAN}
+                  {APP_SLOGAN.split(',').map((word, index) => (
+                    <span key={index}>
+                      {word}
+                      <br />
+                    </span>
+                  ))}
                 </h2>
               </div>
-            </Card>
+            </div>
           </div>
           <Card className="container flex flex-col gap-4 bg-background/20 backdrop-blur-sm">
             <Header id="products" label="Products" />
