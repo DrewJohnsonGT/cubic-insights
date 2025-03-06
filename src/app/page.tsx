@@ -10,12 +10,18 @@ import { APP_NAME, APP_SLOGAN } from '~/utils/constants';
 type SectionProps = {
   id: string;
   title: string;
+  description?: string;
   children: React.ReactNode;
 };
 
-const Section = ({ id, title, children }: SectionProps) => (
+const Section = ({ id, title, description, children }: SectionProps) => (
   <section id={id} className="w-full py-12">
-    <h2 className="mb-8 text-center text-4xl font-bold">{title}</h2>
+    <h2 className="mb-2 text-center text-4xl font-bold">{title}</h2>
+    {description && (
+      <p className="mx-auto mb-8 max-w-md text-center text-lg text-muted-foreground">
+        {description}
+      </p>
+    )}
     <div className="px-4 md:px-8">{children}</div>
   </section>
 );
@@ -26,12 +32,9 @@ export default function HomePage() {
       <ScrollArea className="h-screen w-screen">
         <NavigationHeader />
 
-        {/* Hero section with pattern background */}
         <div className="hero-section">
-          {/* Pattern background applied only to hero */}
           <div className="bg-pattern"></div>
 
-          {/* Hero content */}
           <div className="hero-content my-32 flex flex-col items-center gap-20 bg-background/10 p-10 backdrop-blur-sm md:flex-row">
             <ParticleBackground />
             <div className="flex w-full flex-col items-center gap-4">
@@ -50,18 +53,29 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Main content with radial background */}
         <div className="bg-radial w-full">
           <div className="flex flex-col items-center justify-center">
-            <Section id="products" title="Products">
+            <Section
+              id="products"
+              title="Products"
+              description="Innovative healthcare technology solutions designed to address specific challenges in the medical field."
+            >
               <Products />
             </Section>
 
-            <Section id="founders" title="Founders">
+            <Section
+              id="founders"
+              title="Founders"
+              description="Meet the team behind Cubic Insights - healthcare professionals and technologists combining their expertise to improve patient outcomes."
+            >
               <Founders />
             </Section>
 
-            <Section id="contact" title="Contact">
+            <Section
+              id="contact"
+              title="Contact"
+              description="Have questions or interested in our services? Reach out to our team for more information."
+            >
               <ContactForm />
             </Section>
           </div>
