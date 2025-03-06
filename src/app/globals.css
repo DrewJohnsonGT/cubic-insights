@@ -13,13 +13,13 @@
     --popover: 30 20% 96%;
     --popover-foreground: 30 20% 15%;
 
-    --primary: 30 100% 50%;
+    --primary: 30 100% 60%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 30 90% 45%;
     --secondary-foreground: 0 0% 100%;
 
-    --accent: 30 85% 50%;
+    --accent: 30 85% 60%;
     --accent-foreground: 0 0% 100%;
 
     --muted: 30 15% 90%;
@@ -34,19 +34,19 @@
     --warning: 30 100% 60%;
     --warning-foreground: 0 0% 100%;
 
-    --border: 30 10% 80%;
-    --input: 30 10% 80%;
+    --border: 30 10% 60%;
+    --input: 30 10% 60%;
     --input-background: 30 20% 95%;
 
-    --ring: 30 100% 50%;
-    --link: 30 100% 50%;
+    --ring: 30 100% 60%;
+    --link: 30 100% 60%;
 
-    --chart-blue: 220 70% 50%;
+    --chart-blue: 220 70% 60%;
     --chart-green: 130 60% 45%;
-    --chart-orange: 30 80% 55%;
+    --chart-orange: 30 60% 55%;
     --chart-pink: 340 100% 70%;
-    --chart-red: 0 100% 50%;
-    --chart-yellow: 48 100% 50%;
+    --chart-red: 0 100% 60%;
+    --chart-yellow: 48 100% 60%;
     --chart-purple: 242 57% 69%;
 
     --radius: 0.5rem;
@@ -69,10 +69,10 @@
     --primary: 30 100% 55%;
     --primary-foreground: 220 5% 95%;
 
-    --secondary: 30 80% 50%;
+    --secondary: 30 60% 60%;
     --secondary-foreground: 220 5% 95%;
 
-    --accent: 30 90% 50%;
+    --accent: 30 90% 60%;
     --accent-foreground: 220 5% 98%;
 
     --muted: 220 5% 40%;
@@ -87,10 +87,10 @@
     --warning: 35 100% 60%;
     --warning-foreground: 0 0% 100%;
 
-    --ring: 30 100% 50%;
-    --link: 30 100% 50%;
+    --ring: 30 100% 60%;
+    --link: 30 100% 60%;
 
-    --chart-blue: 220 80% 55%;
+    --chart-blue: 220 60% 55%;
     --chart-green: 160 70% 45%;
     --chart-orange: 30 90% 60%;
     --chart-pink: 340 100% 75%;
@@ -98,6 +98,11 @@
     --chart-yellow: 48 100% 60%;
     --chart-purple: 242 65% 75%;
   }
+}
+
+@font-face {
+  font-family: 'Qube';
+  src: url('/fonts/QUBE.woff2');
 }
 
 :root {
@@ -121,6 +126,117 @@ body {
 
 #main {
   @apply h-full;
+}
+
+@layer components {
+  .hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .bg-pattern {
+    width: 100%;
+    height: 100%;
+    --size: 200px;
+    --c1: hsl(var(--primary));
+    --c2: hsl(var(--secondary));
+    --c3: hsl(var(--accent));
+
+    background:
+      repeating-conic-gradient(
+          from 30deg,
+          transparent 0 120deg,
+          var(--c3) 0 180deg
+        )
+        calc(0.5 * var(--size)) calc(0.5 * var(--size) * 0.577),
+      repeating-conic-gradient(
+        from 30deg,
+        var(--c1) 0 60deg,
+        var(--c2) 0 120deg,
+        var(--c3) 0 180deg
+      );
+    background-size: var(--size) calc(var(--size) * 0.577);
+    /* Mask to fade the pattern at top and bottom */
+    mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      hsl(var(--background)) 40%,
+      hsl(var(--background)) 60%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      transparent,
+      hsl(var(--background)) 40%,
+      hsl(var(--background)) 60%,
+      transparent
+    );
+  }
+
+  .bg-radial {
+    position: relative;
+    width: 100%;
+  }
+
+  .bg-radial::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background:
+      radial-gradient(
+        at 100% 36%,
+        hsl(var(--primary) / 20) 0px,
+        transparent 60%
+      ),
+      radial-gradient(
+        at 0% 12%,
+        hsl(var(--background) / 20) 0px,
+        transparent 60%
+      ),
+      radial-gradient(
+        at 64% 8%,
+        hsl(var(--background) / 20) 0px,
+        transparent 60%
+      ),
+      radial-gradient(at 0% 66%, hsl(var(--primary) / 20) 0px, transparent 60%),
+      radial-gradient(
+        at 89% 100%,
+        hsl(var(--background) / 20) 0px,
+        transparent 60%
+      ),
+      radial-gradient(
+        at 34% 4%,
+        hsl(var(--background) / 20) 0px,
+        transparent 60%
+      ),
+      radial-gradient(
+        at 85% 9%,
+        hsl(var(--background) / 20) 0px,
+        transparent 60%
+      ),
+      hsl(var(--primary) / 20);
+    mask-image: linear-gradient(
+      to top,
+      transparent,
+      hsl(var(--background)) 40%,
+      transparent
+    );
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
 }
 
 @keyframes expand {

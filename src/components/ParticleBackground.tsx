@@ -54,8 +54,8 @@ export const ParticleBackground = () => {
             quantity: 4,
           },
           repulse: {
-            distance: 200,
-            duration: 0.8,
+            distance: 20,
+            duration: 2,
           },
         },
       },
@@ -84,7 +84,7 @@ export const ParticleBackground = () => {
           density: {
             enable: true,
           },
-          value: 160,
+          value: 250,
         },
         opacity: {
           value: 0.5,
@@ -93,7 +93,7 @@ export const ParticleBackground = () => {
           type: 'circle',
         },
         size: {
-          value: { min: 0.25, max: 3 },
+          value: { min: 0.25, max: 2 },
         },
       },
       detectRetina: true,
