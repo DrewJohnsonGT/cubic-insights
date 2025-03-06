@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import { Button } from '~/components/ui/Button';
 import {
   Form,
   FormControl,
@@ -14,6 +15,7 @@ import {
   FormMessage,
 } from '~/components/ui/Form';
 import { Input } from '~/components/ui/Input';
+import { Textarea } from '~/components/ui/Textarea';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, {
@@ -41,6 +43,7 @@ export const ContactForm = () => {
       email: '',
       message: '',
     },
+    mode: 'onBlur',
   });
 
   async function onSubmit(data: ContactFormValues) {
@@ -117,11 +120,7 @@ export const ContactForm = () => {
               <FormItem>
                 <FormLabel>Message</FormLabel>
                 <FormControl>
-                  <textarea
-                    className="flex min-h-[120px] w-full resize-y rounded-md border border-input bg-input-background px-3 py-2 ring-offset-background placeholder:text-muted-foreground hover:border-ring focus-visible:border-ring focus-visible:outline-none focus-visible:ring-[2.5px] focus-visible:ring-ring/50 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-50"
-                    placeholder="Your message"
-                    {...field}
-                  />
+                  <Textarea placeholder="Your message" {...field} />
                 </FormControl>
                 <FormDescription>
                   Please provide details about your inquiry.
@@ -143,15 +142,15 @@ export const ContactForm = () => {
             </div>
           )}
 
-          <button
+          <Button
             type="submit"
-            disabled={isSubmitting}
-            className="w-full rounded-md bg-primary px-4 py-2 text-white hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:cursor-not-allowed disabled:opacity-50"
+            disabled={isSubmitting || !form.formState.isValid}
+            className="w-full"
           >
             {isSubmitting ? 'Sending...' : 'Send Message'}
-          </button>
+          </Button>
         </form>
       </Form>
     </div>
   );
-}
+};
