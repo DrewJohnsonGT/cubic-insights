@@ -159,7 +159,6 @@ body {
       to bottom,
       transparent,
       hsl(var(--background)) 50%,
-      hsl(var(--background)) 50%,
       transparent
     );
   }
