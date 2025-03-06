@@ -90,7 +90,7 @@ export const ContactForm = () => {
                 <FormControl>
                   <Input placeholder="Your name" {...field} />
                 </FormControl>
-                <FormMessage />
+                {form.formState.errors.name && <FormMessage />}
               </FormItem>
             )}
           />
@@ -108,7 +108,7 @@ export const ContactForm = () => {
                     {...field}
                   />
                 </FormControl>
-                <FormMessage />
+                {form.formState.errors.email && <FormMessage />}
               </FormItem>
             )}
           />
@@ -119,13 +119,13 @@ export const ContactForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Message</FormLabel>
-                <FormControl>
-                  <Textarea placeholder="Your message" {...field} />
-                </FormControl>
                 <FormDescription>
                   Please provide details about your inquiry.
                 </FormDescription>
-                <FormMessage />
+                <FormControl>
+                  <Textarea placeholder="Your message" {...field} />
+                </FormControl>
+                {form.formState.errors.message && <FormMessage />}
               </FormItem>
             )}
           />

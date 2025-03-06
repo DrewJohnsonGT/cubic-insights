@@ -38,10 +38,7 @@ const getCurrentEasternTime = (): string => {
 
 const sendDiscordNotification = async (embed: Embed): Promise<void> => {
   try {
-    if (
-      !process.env.DISCORD_WEBHOOK_URL ||
-      process.env.NODE_ENV !== 'production'
-    ) {
+    if (!process.env.DISCORD_WEBHOOK_URL) {
       return;
     }
     await fetch(process.env.DISCORD_WEBHOOK_URL, {
@@ -94,8 +91,6 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
     const embed = createContactFormEmbed(data);
     await sendDiscordNotification(embed);
-
-    console.log('Contact form submission:', data);
 
     return NextResponse.json(
       { success: true, message: 'Contact form submitted successfully' },

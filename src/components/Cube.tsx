@@ -12,14 +12,14 @@ const SIDES = [
 
 const sideClasses = {
   front:
-    '[transform:rotateY(0deg)_translateZ(calc(var(--cubeSize)/2))] bg-teal-400/30',
-  back: '[transform:rotateY(180deg)_translateZ(calc(var(--cubeSize)/2))] bg-emerald-300/30',
+    '[transform:rotateY(0deg)_translateZ(calc(var(--cubeSize)/2))] bg-teal-400/20',
+  back: '[transform:rotateY(180deg)_translateZ(calc(var(--cubeSize)/2))] bg-emerald-300/20',
   right:
-    '[transform:rotateY(90deg)_translateZ(calc(var(--cubeSize)/2))] bg-red-500/30',
-  left: '[transform:rotateY(-90deg)_translateZ(calc(var(--cubeSize)/2))] bg-orange-500/30',
-  top: '[transform:rotateX(-90deg)_translateZ(calc(var(--cubeSize)/2))] bg-purple-500/30',
+    '[transform:rotateY(90deg)_translateZ(calc(var(--cubeSize)/2))] bg-red-500/20',
+  left: '[transform:rotateY(-90deg)_translateZ(calc(var(--cubeSize)/2))] bg-orange-500/20',
+  top: '[transform:rotateX(-90deg)_translateZ(calc(var(--cubeSize)/2))] bg-purple-500/20',
   bottom:
-    '[transform:rotateX(90deg)_translateZ(calc(var(--cubeSize)/2))] bg-pink-500/30',
+    '[transform:rotateX(90deg)_translateZ(calc(var(--cubeSize)/2))] bg-pink-500/20',
 };
 
 export const Cube = ({
