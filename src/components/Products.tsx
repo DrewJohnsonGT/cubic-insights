@@ -1,11 +1,13 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import { Button } from '~/components/ui/Button';
 import { Card, CardContent, CardHeader, CardTitle } from '~/components/ui/Card';
 import { AppImage, IMAGES } from '~/utils/images';
 
 interface Product {
   name: string;
   description: string[];
-  logo: AppImage;
+  href: string;
   images: { light: AppImage; dark: AppImage }[];
 }
 
@@ -17,7 +19,7 @@ const PRODUCTS: Product[] = [
       'Streamline paperwork, manage data efficiently, and focus more time on supporting families through effective intervention.',
       'Built with security and HIPAA compliance at its core.',
     ],
-    logo: IMAGES.PCITTrackerLogo,
+    href: 'https://pcit-tracker.com',
     images: [
       {
         light: IMAGES.PCITTracker1,
@@ -25,49 +27,36 @@ const PRODUCTS: Product[] = [
       },
     ],
   },
-  {
-    name: 'Handle With Care Portal',
-    description: ['Coming Soon!'],
-    logo: IMAGES.HandleWithCarePortalLogo,
-    images: [],
-  },
 ];
 
-function ProductCard({ name, description, logo, images }: Product) {
+function ProductCard({ name, description, images, href }: Product) {
   return (
     <Card className="mx-auto max-w-4xl overflow-hidden transition-all duration-300 hover:shadow-lg">
-      <div className="flex flex-col items-center gap-12 py-8">
-        <div className="relative w-full px-8">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 via-transparent to-primary/10 opacity-30"></div>
-          <Image
-            src={logo.src}
-            alt={`${name} logo`}
-            width={logo.width}
-            height={logo.height}
-            className="h-36 w-full object-contain py-2"
-            aria-label={`${name} logo`}
-          />
-        </div>
-
-        <CardHeader className="pb-0 text-center">
-          <CardTitle className="text-3xl font-bold text-primary">
+      <div className="flex flex-col items-center gap-12">
+        <CardHeader className="w-full p-0">
+          <CardTitle className="inset-0 bg-gradient-to-r from-primary/20 via-background to-primary/20 py-8 text-center text-3xl font-bold text-primary">
             {name}
           </CardTitle>
         </CardHeader>
 
-        <CardContent className="max-w-2xl flex-1 px-8">
+        <CardContent className="flex max-w-2xl flex-1 flex-col items-center gap-4 px-8">
           {description.map((paragraph, index) => (
             <p
-              className="mb-4 text-lg leading-relaxed text-muted-foreground"
+              className="text-lg leading-relaxed text-muted-foreground"
               key={index}
             >
               {paragraph}
             </p>
           ))}
+          <Link href={href} target="_blank" rel="noreferrer">
+            <Button variant="outline" className="mx-auto">
+              Visit
+            </Button>
+          </Link>
         </CardContent>
 
         {images.length > 0 && (
-          <div className="w-full max-w-2xl px-8 pt-4">
+          <div className="w-full max-w-2xl px-8 pb-8">
             <div className="overflow-hidden rounded-lg border-2 border-border shadow-md">
               {images.map(({ light, dark }, index) => (
                 <div key={index} className="relative">
