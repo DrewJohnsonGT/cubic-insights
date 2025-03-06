@@ -6,12 +6,85 @@ interface ContactFormData {
   message: string;
 }
 
+interface Embed {
+  title: string;
+  description?: string;
+  color?: number;
+  fields?: {
+    inline?: boolean;
+    name: string;
+    value: string;
+    color?: number;
+  }[];
+  footer?: {
+    text: string;
+    icon_url?: string;
+  };
+}
+
+const getCurrentEasternTime = (): string => {
+  const now = new Date();
+  const options: Intl.DateTimeFormatOptions = {
+    timeZone: 'America/New_York',
+    month: '2-digit',
+    day: '2-digit',
+    year: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: true,
+  };
+  return new Intl.DateTimeFormat('en-US', options).format(now);
+};
+
+const sendDiscordNotification = async (embed: Embed): Promise<void> => {
+  try {
+    if (
+      !process.env.DISCORD_WEBHOOK_URL ||
+      process.env.NODE_ENV !== 'production'
+    ) {
+      return;
+    }
+    await fetch(process.env.DISCORD_WEBHOOK_URL, {
+      body: JSON.stringify({
+        embeds: [embed],
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    });
+  } catch (err: unknown) {
+    const errorMessage = err as Error;
+    console.log('Error sending discord notification');
+    console.log(errorMessage.message);
+  }
+};
+
+const createContactFormEmbed = (data: ContactFormData): Embed => ({
+  color: 0xff9933,
+  description: data.message,
+  fields: [
+    {
+      inline: true,
+      name: 'Name',
+      value: data.name,
+    },
+    {
+      inline: true,
+      name: 'Email',
+      value: data.email,
+    },
+  ],
+  footer: {
+    text: getCurrentEasternTime(),
+  },
+  title: 'Contact Form Message',
+});
+
 export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
-    // Parse the request body
     const data = (await request.json()) as ContactFormData;
 
-    // Validate the required fields
     if (!data.name || !data.email || !data.message) {
       return NextResponse.json(
         { error: 'Name, email, and message are required' },
@@ -19,7 +92,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       );
     }
 
-    // TODO: Implement actual contact form submission logic
+    const embed = createContactFormEmbed(data);
+    await sendDiscordNotification(embed);
 
     console.log('Contact form submission:', data);
 
