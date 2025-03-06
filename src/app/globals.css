@@ -158,15 +158,8 @@ body {
     mask-image: linear-gradient(
       to bottom,
       transparent,
-      hsl(var(--background)) 40%,
-      hsl(var(--background)) 60%,
-      transparent
-    );
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      transparent,
-      hsl(var(--background)) 40%,
-      hsl(var(--background)) 60%,
+      hsl(var(--background)) 50%,
+      hsl(var(--background)) 50%,
       transparent
     );
   }

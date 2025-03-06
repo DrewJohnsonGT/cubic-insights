@@ -43,7 +43,7 @@ export default function HomePage() {
         <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden">
           <div className="bg-pattern"></div>
 
-          <div className="my-32 flex flex-col items-center gap-20 bg-background/10 p-10 backdrop-blur-sm md:flex-row">
+          <div className="relative my-32 flex flex-col items-center gap-20 bg-background/10 p-10 px-12 backdrop-blur-sm md:flex-row">
             <ParticleBackground />
             <div className="flex w-full items-center gap-4">
               <div className="flex flex-col gap-20 text-center sm:flex-row">
@@ -57,10 +57,10 @@ export default function HomePage() {
                   ))}
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h1 className="font-['Qube'] text-7xl font-bold leading-none text-foreground drop-shadow-[0px_0px_16px_hsl(var(--foreground))]">
+                  <h1 className="font-['Qube'] text-4xl font-bold leading-none text-foreground drop-shadow-[0px_0px_16px_hsl(var(--foreground))] sm:text-7xl">
                     {APP_NAME}
                   </h1>
-                  <h2 className="text-2xl font-bold italic leading-none">
+                  <h2 className="text-lg font-bold italic leading-none sm:text-2xl">
                     {APP_SLOGAN.split(',').map((word, index) => (
                       <span key={index}>
                         {word}

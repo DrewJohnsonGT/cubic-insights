@@ -14,10 +14,6 @@ import { IMAGES } from '~/utils/images';
 
 const HEADER_LINKS = [
   {
-    href: '#about',
-    label: 'About',
-  },
-  {
     href: '#products',
     label: 'Products',
   },
@@ -34,7 +30,7 @@ const HEADER_LINKS = [
 export const Header = () => {
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex h-20 items-center bg-transparent p-2">
-      <div className="mx-auto flex size-full max-w-4xl flex-1 items-center justify-between gap-2 rounded-lg border border-border bg-background/20 px-4 backdrop-blur-md lg:px-6">
+      <div className="mx-auto flex size-full max-w-4xl flex-1 items-center justify-between gap-2 rounded-lg border border-border bg-background/20 px-2 backdrop-blur-md">
         <Link href="#" aria-label="Home" prefetch={false} className="">
           <Image src={IMAGES.logo.src} alt={APP_NAME} height={42} width={42} />
         </Link>
