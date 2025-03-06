@@ -1,20 +1,28 @@
 import { ContactForm } from '~/components/ContactForm';
+import { Cube } from '~/components/Cube';
 import { Footer } from '~/components/Footer';
 import { Founders } from '~/components/Founders';
-import { NavigationHeader } from '~/components/NavigationHeader';
+import { Header } from '~/components/Header';
 import { ParticleBackground } from '~/components/ParticleBackground';
 import { Products } from '~/components/Products';
 import { ScrollArea } from '~/components/ui/ScrollArea';
 import { APP_NAME, APP_SLOGAN } from '~/utils/constants';
 
-type SectionProps = {
+const NUM_CUBES = 8;
+const CUBE_SIZE_DIFFERENCE = 1;
+const STARTING_CUBE_SIZE = 1;
+
+const Section = ({
+  id,
+  title,
+  description,
+  children,
+}: {
   id: string;
   title: string;
   description?: string;
   children: React.ReactNode;
-};
-
-const Section = ({ id, title, description, children }: SectionProps) => (
+}) => (
   <section id={id} className="w-full py-12">
     <h2 className="mb-2 text-center text-4xl font-bold">{title}</h2>
     {description && (
@@ -30,25 +38,38 @@ export default function HomePage() {
   return (
     <div className="h-screen w-screen">
       <ScrollArea className="h-screen w-screen">
-        <NavigationHeader />
+        <Header />
 
-        <div className="hero-section">
+        <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden">
           <div className="bg-pattern"></div>
 
-          <div className="hero-content my-32 flex flex-col items-center gap-20 bg-background/10 p-10 backdrop-blur-sm md:flex-row">
+          <div className="my-32 flex flex-col items-center gap-20 bg-background/10 p-10 backdrop-blur-sm md:flex-row">
             <ParticleBackground />
-            <div className="flex w-full flex-col items-center gap-4">
-              <h1 className="text-center font-['Qube'] text-7xl font-bold leading-none text-foreground drop-shadow-[0px_0px_16px_hsl(var(--foreground))]">
-                {APP_NAME}
-              </h1>
-              <h2 className="text-2xl font-bold italic leading-none">
-                {APP_SLOGAN.split(',').map((word, index) => (
-                  <span key={index}>
-                    {word}
-                    <br />
-                  </span>
-                ))}
-              </h2>
+            <div className="flex w-full items-center gap-4">
+              <div className="flex flex-col gap-20 text-center sm:flex-row">
+                <div className="relative">
+                  {Array.from({ length: NUM_CUBES }).map((_, i) => (
+                    <Cube
+                      key={i}
+                      size={`${STARTING_CUBE_SIZE + i * CUBE_SIZE_DIFFERENCE}rem`}
+                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                    />
+                  ))}
+                </div>
+                <div className="flex flex-col gap-2">
+                  <h1 className="font-['Qube'] text-7xl font-bold leading-none text-foreground drop-shadow-[0px_0px_16px_hsl(var(--foreground))]">
+                    {APP_NAME}
+                  </h1>
+                  <h2 className="text-2xl font-bold italic leading-none">
+                    {APP_SLOGAN.split(',').map((word, index) => (
+                      <span key={index}>
+                        {word}
+                        <br />
+                      </span>
+                    ))}
+                  </h2>
+                </div>
+              </div>
             </div>
           </div>
         </div>

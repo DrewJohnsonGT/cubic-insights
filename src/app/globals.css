@@ -66,13 +66,13 @@
     --input: 220 10% 30%;
     --input-background: 220 10% 15%;
 
-    --primary: 30 100% 55%;
+    --primary: 30 100% 35%;
     --primary-foreground: 220 5% 95%;
 
-    --secondary: 30 60% 60%;
+    --secondary: 30 60% 45%;
     --secondary-foreground: 220 5% 95%;
 
-    --accent: 30 90% 60%;
+    --accent: 30 90% 45%;
     --accent-foreground: 220 5% 98%;
 
     --muted: 220 5% 40%;
@@ -129,16 +129,6 @@ body {
 }
 
 @layer components {
-  .hero-section {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
   .bg-pattern {
     position: absolute;
     top: 0;

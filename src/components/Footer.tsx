@@ -13,7 +13,7 @@ const FOOTER_LINKS = [
 ];
 
 export const Footer = () => (
-  <footer className="grid items-center gap-4 p-4 py-8 xl:grid-cols-3">
+  <footer className="mt-20 grid items-center gap-4 p-4 pt-20 xl:grid-cols-3">
     <p className="text-center text-xs xl:text-start">
       © {new Date().getFullYear()} {APP_NAME}. All rights reserved.
     </p>
