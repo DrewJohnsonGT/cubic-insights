@@ -32,7 +32,7 @@ const PRODUCTS: Product[] = [
 function ProductCard({ name, description, images, href }: Product) {
   return (
     <Card className="mx-auto max-w-4xl overflow-hidden transition-all duration-300 hover:shadow-lg">
-      <div className="flex flex-col items-center gap-12">
+      <div className="flex flex-col items-center gap-4">
         <CardHeader className="w-full p-0">
           <CardTitle className="inset-0 bg-gradient-to-r from-primary/20 via-background to-primary/20 py-8 text-center text-3xl font-bold text-primary">
             {name}

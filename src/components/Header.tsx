@@ -35,13 +35,8 @@ export const Header = () => {
   return (
     <header className="fixed inset-x-0 top-0 z-50 flex h-20 items-center bg-transparent p-2">
       <div className="mx-auto flex size-full max-w-4xl flex-1 items-center justify-between gap-2 rounded-lg border border-border bg-background/20 px-4 backdrop-blur-md lg:px-6">
-        <Link
-          href="#"
-          aria-label="Home"
-          prefetch={false}
-          className="ml-2 mr-8"
-        >
-          <Image src={IMAGES.logo.src} alt={APP_NAME} width={32} height={32} />
+        <Link href="#" aria-label="Home" prefetch={false} className="">
+          <Image src={IMAGES.logo.src} alt={APP_NAME} height={42} width={42} />
         </Link>
         <span className="text-lg font-bold">{APP_NAME}</span>
         <nav className="mx-auto hidden flex-1 items-center justify-center gap-4 sm:gap-6 md:flex">
