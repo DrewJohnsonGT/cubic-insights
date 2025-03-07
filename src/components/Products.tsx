@@ -39,7 +39,7 @@ function ProductCard({ name, description, images, href }: Product) {
           </CardTitle>
         </CardHeader>
 
-        <CardContent className="flex max-w-2xl flex-1 flex-col items-center gap-4 px-8">
+        <CardContent className="flex max-w-2xl flex-1 flex-col gap-4 px-8">
           {description.map((paragraph, index) => (
             <p
               className="text-lg leading-relaxed text-muted-foreground"

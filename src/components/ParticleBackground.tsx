@@ -40,19 +40,12 @@ export const ParticleBackground = () => {
       fpsLimit: 120,
       interactivity: {
         events: {
-          onClick: {
-            enable: true,
-            mode: 'push',
-          },
           onHover: {
             enable: true,
             mode: 'repulse',
           },
         },
         modes: {
-          push: {
-            quantity: 4,
-          },
           repulse: {
             distance: 20,
             duration: 2,
