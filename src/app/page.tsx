@@ -61,12 +61,7 @@ export default function HomePage() {
                     {APP_NAME}
                   </h1>
                   <h2 className="text-lg font-bold italic leading-none sm:text-2xl">
-                    {APP_SLOGAN.split(',').map((word, index) => (
-                      <span key={index}>
-                        {word}
-                        <br />
-                      </span>
-                    ))}
+                    {APP_SLOGAN}
                   </h2>
                 </div>
               </div>

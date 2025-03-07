@@ -3,8 +3,8 @@ import { IoLogoReddit } from 'react-icons/io5';
 import { LuFacebook, LuLinkedin } from 'react-icons/lu';
 import { Button } from '~/components/ui/Button';
 
-const URL = process.env.NEXT_PUBLIC_APP_URL;
-const TITLE = 'Check out PCIT Tracker!';
+const URL = 'https://cubic-insights.com';
+const TITLE = 'Check out Cubic Insights!';
 
 export const SocialShareButtons = () => {
   const encodedUrl = encodeURIComponent(URL);
@@ -14,7 +14,7 @@ export const SocialShareButtons = () => {
     {
       name: 'Twitter',
       icon: FaXTwitter,
-      href: `https://twitter.com/share?url=${encodedUrl}&text=${encodedTitle}&via=pcittracker&hashtags=PCIT,ParentChildInteractionTherapy`,
+      href: `https://twitter.com/share?url=${encodedUrl}&text=${encodedTitle}&via=cubicinsights&hashtags=Healthcare,DataAnalytics,BusinessIntelligence`,
     },
     {
       name: 'Facebook',
