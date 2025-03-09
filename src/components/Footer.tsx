@@ -2,14 +2,12 @@ import { SocialShareButtons } from './SocialShareButtons';
 import {
   APP_NAME,
   PRIVACY_POLICY_URL,
-  RESPONSIBLE_USE_URL,
   TERMS_OF_SERVICE_URL,
 } from '~/utils/constants';
 
 const FOOTER_LINKS = [
   { href: TERMS_OF_SERVICE_URL, label: 'Terms of Service' },
   { href: PRIVACY_POLICY_URL, label: 'Privacy Policy' },
-  { href: RESPONSIBLE_USE_URL, label: 'Responsible Use Policy' },
 ];
 
 export const Footer = () => (
