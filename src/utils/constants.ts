@@ -21,8 +21,3 @@ export const APP_KEYWORDS = [
   'Healthcare Consulting Firm',
   'Medical Software Consulting',
 ];
-
-export const TERMS_OF_SERVICE_URL =
-  'https://app.termly.io/policy-viewer/policy.html?policyUUID=63c15fdf-88b6-46a9-9935-cce003f23acf';
-export const PRIVACY_POLICY_URL =
-  'https://app.termly.io/policy-viewer/policy.html?policyUUID=8beb92c8-afcf-442f-bb62-2d5bbaab9cfd';

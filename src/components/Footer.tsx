@@ -1,13 +1,16 @@
 import { SocialShareButtons } from './SocialShareButtons';
-import {
-  APP_NAME,
-  PRIVACY_POLICY_URL,
-  TERMS_OF_SERVICE_URL,
-} from '~/utils/constants';
+import { APP_NAME } from '~/utils/constants';
 
 const FOOTER_LINKS = [
-  { href: TERMS_OF_SERVICE_URL, label: 'Terms of Service' },
-  { href: PRIVACY_POLICY_URL, label: 'Privacy Policy' },
+  {
+    href: 'https://pcit-tracker.com/terms-of-service',
+    label: 'Terms of Service',
+  },
+  { href: 'https://pcit-tracker.com/privacy-policy', label: 'Privacy Policy' },
+  {
+    href: 'https://pcit-tracker.com/responsible-use',
+    label: 'Responsible Disclosure',
+  },
 ];
 
 export const Footer = () => (
