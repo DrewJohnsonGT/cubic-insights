@@ -8,8 +8,8 @@ const FOOTER_LINKS = [
   },
   { href: 'https://pcit-tracker.com/privacy-policy', label: 'Privacy Policy' },
   {
-    href: 'https://pcit-tracker.com/responsible-use',
-    label: 'Responsible Disclosure',
+    href: 'https://pcit-tracker.com/responsible-use-policy',
+    label: 'Responsible Use Policy',
   },
 ];
 
