@@ -65,15 +65,15 @@ export interface ButtonProps
     ButtonVariantProps {
   asChild?: boolean;
   loading?: boolean;
-  loadingMessage?: string;
+  loadingText?: string;
 }
 
 const ButtonLoadingContent = ({
-  loadingMessage,
+  loadingText,
   size,
 }: {
   size: ButtonVariantProps['size'];
-  loadingMessage: string;
+  loadingText: string;
 }) => (
   <div className="flex items-center">
     <LoadingSpinner
@@ -83,7 +83,7 @@ const ButtonLoadingContent = ({
       )}
       size="sm"
     />
-    {size !== 'icon' && size !== 'smallIcon' && <span>{loadingMessage}</span>}
+    {size !== 'icon' && size !== 'smallIcon' && <span>{loadingText}</span>}
   </div>
 );
 
@@ -92,7 +92,7 @@ const Button: React.FC<React.ComponentProps<'button'> & ButtonProps> = ({
   className,
   color,
   loading,
-  loadingMessage = 'Loading...',
+  loadingText = 'Loading...',
   size,
   variant,
   ...props
@@ -105,7 +105,7 @@ const Button: React.FC<React.ComponentProps<'button'> & ButtonProps> = ({
       {...props}
     >
       {loading ? (
-        <ButtonLoadingContent size={size} loadingMessage={loadingMessage} />
+        <ButtonLoadingContent size={size} loadingText={loadingText} />
       ) : (
         props.children
       )}
