@@ -112,7 +112,7 @@
 
 html,
 body {
-  @apply h-[100dvh] w-[100dvw] bg-accent-background antialiased dark:[color-scheme:dark];
+  @apply h-[100dvh] w-[100dvw] antialiased dark:[color-scheme:dark];
 }
 
 #main {
