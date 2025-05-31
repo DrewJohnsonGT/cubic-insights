@@ -110,15 +110,6 @@
   --translateZ: calc(var(--cubeSize) / 2);
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
-
 html,
 body {
   @apply h-[100dvh] w-[100dvw] bg-accent-background antialiased dark:[color-scheme:dark];
