@@ -21,7 +21,7 @@ const ScrollArea: React.FC<ScrollAreaProps> = ({
   >
     <ScrollAreaPrimitive.Viewport
       className={cn(
-        'size-full scroll-smooth rounded-[inherit] [&>div]:!block',
+        'size-full scroll-smooth rounded-[inherit] [&>div]:block!',
         viewportClassName,
       )}
     >

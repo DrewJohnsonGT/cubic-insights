@@ -34,14 +34,14 @@ export const Cube = ({
       style={{ '--cubeSize': size } as React.CSSProperties}
       className={cn(
         'flex items-center justify-center overflow-visible',
-        'size-[var(--cubeSize)]',
-        '[perspective:calc(var(--cubeSize)*5)]',
+        'size-(--cubeSize)',
+        'perspective-[calc(var(--cubeSize)*5)]',
         className,
       )}
     >
       <div
         className={cn(
-          'relative size-full transition-transform duration-1000 [transform-style:preserve-3d]',
+          'relative size-full transition-transform duration-1000 transform-3d',
           'animate-rotating [animation-duration:20s]',
         )}
       >
@@ -49,7 +49,7 @@ export const Cube = ({
           <div
             key={position}
             className={cn(
-              'absolute flex size-[var(--cubeSize)] items-center justify-center border border-foreground',
+              'absolute flex size-(--cubeSize) items-center justify-center border border-foreground',
               sideClasses[position as keyof typeof sideClasses],
             )}
           />

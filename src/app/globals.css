@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
 @layer base {
   :root {
@@ -100,23 +98,25 @@
   }
 }
 
-@font-face {
-  font-family: 'Qube';
-  src: url('/fonts/QUBE.woff2');
-}
+@layer utilities {
+  @font-face {
+    font-family: 'Qube';
+    src: url('/fonts/QUBE.woff2');
+  }
 
-:root {
-  --cubeSize: 200px;
-  --translateZ: calc(var(--cubeSize) / 2);
-}
+  :root {
+    --cubeSize: 200px;
+    --translateZ: calc(var(--cubeSize) / 2);
+  }
 
-html,
-body {
-  @apply h-[100dvh] w-[100dvw] antialiased dark:[color-scheme:dark];
-}
+  html,
+  body {
+    @apply h-dvh w-dvw antialiased dark:scheme-dark;
+  }
 
-#main {
-  @apply h-full;
+  #main {
+    @apply h-full;
+  }
 }
 
 @layer components {
