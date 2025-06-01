@@ -3,12 +3,10 @@ import nextPlugin from '@next/eslint-plugin-next';
 import react from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
 import sort from 'eslint-plugin-sort';
-import tailwind from 'eslint-plugin-tailwindcss';
 import ts from 'typescript-eslint';
 
 export default [
   ...ts.configs.recommended,
-  ...tailwind.configs['flat/recommended'],
   react.configs.flat?.recommended,
   {
     plugins: {
