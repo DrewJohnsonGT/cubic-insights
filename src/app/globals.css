@@ -1,5 +1,82 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --cubeSize: 200px;
+  --translateZ: calc(var(--cubeSize) / 2);
+
+  /* Animation variables */
+  --animate-expand: expand 2s ease-in-out infinite;
+  --animate-rotating: rotating 40s linear infinite;
+
+  /* Theme color variables (hsl references) */
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+  --color-warning: hsl(var(--warning));
+  --color-warning-foreground: hsl(var(--warning-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-input-background: hsl(var(--input-background));
+  --color-ring: hsl(var(--ring));
+  --color-link: hsl(var(--link));
+  --color-chart-blue: hsl(var(--chart-blue));
+  --color-chart-green: hsl(var(--chart-green));
+  --color-chart-orange: hsl(var(--chart-orange));
+  --color-chart-pink: hsl(var(--chart-pink));
+  --color-chart-red: hsl(var(--chart-red));
+  --color-chart-yellow: hsl(var(--chart-yellow));
+  --color-chart-purple: hsl(var(--chart-purple));
+
+  /* Radius variables */
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  /* Example shadow variables */
+  --shadow-normal: 0px 1px 2px 0px rgba(35, 31, 50, 0.07);
+
+  @keyframes expand {
+    0%,
+    100% {
+      transform: scaleX(1);
+    }
+    50% {
+      transform: scaleX(1.5);
+    }
+  }
+
+  @keyframes rotating {
+    from {
+      /* The cube is moved backward by its half-size (via --translateZ)
+         then rotated from 0deg on both axes. */
+      transform: translateZ(calc(var(--translateZ) * -1)) rotateY(0deg)
+        rotateX(0deg);
+    }
+    to {
+      /* A full 360deg rotation on both the Y and X axes. */
+      transform: translateZ(calc(var(--translateZ) * -1)) rotateY(360deg)
+        rotateX(360deg);
+    }
+  }
+}
+
 @layer base {
   :root {
     --background: 30 20% 98%;
@@ -103,20 +180,6 @@
     font-family: 'Qube';
     src: url('/fonts/QUBE.woff2');
   }
-
-  :root {
-    --cubeSize: 200px;
-    --translateZ: calc(var(--cubeSize) / 2);
-  }
-
-  html,
-  body {
-    @apply h-dvh w-dvw antialiased dark:scheme-dark;
-  }
-
-  #main {
-    @apply h-full;
-  }
 }
 
 @layer components {
@@ -127,9 +190,9 @@
     width: 100%;
     height: 100%;
     --size: 200px;
-    --c1: hsl(var(--primary));
-    --c2: hsl(var(--secondary));
-    --c3: hsl(var(--accent));
+    --c1: var(--color-primary);
+    --c2: var(--color-secondary);
+    --c3: var(--color-accent);
 
     background:
       repeating-conic-gradient(
@@ -180,40 +243,40 @@
     background:
       radial-gradient(
         at 100% 36%,
-        hsl(var(--primary) / 20) 0px,
+        var(--color-primary) / 20 0px,
         transparent 60%
       ),
       radial-gradient(
         at 0% 12%,
-        hsl(var(--background) / 20) 0px,
+        var(--color-background) / 20 0px,
         transparent 60%
       ),
       radial-gradient(
         at 64% 8%,
-        hsl(var(--background) / 20) 0px,
+        var(--color-background) / 20 0px,
         transparent 60%
       ),
-      radial-gradient(at 0% 66%, hsl(var(--primary) / 20) 0px, transparent 60%),
+      radial-gradient(at 0% 66%, var(--color-primary) / 20 0px, transparent 60%),
       radial-gradient(
         at 89% 100%,
-        hsl(var(--background) / 20) 0px,
+        var(--color-background) / 20 0px,
         transparent 60%
       ),
       radial-gradient(
         at 34% 4%,
-        hsl(var(--background) / 20) 0px,
+        var(--color-background) / 20 0px,
         transparent 60%
       ),
       radial-gradient(
         at 85% 9%,
-        hsl(var(--background) / 20) 0px,
+        var(--color-background) / 20 0px,
         transparent 60%
       ),
-      hsl(var(--primary) / 20);
+      var(--color-primary) / 20;
     mask-image: linear-gradient(
       to top,
       transparent,
-      hsl(var(--background)) 40%,
+      var(--color-background) 40%,
       transparent
     );
     pointer-events: none;
@@ -225,34 +288,19 @@
   }
 }
 
-@keyframes expand {
-  0%,
-  100% {
-    transform: scaleX(1);
-  }
-  50% {
-    transform: scaleX(1.5);
-  }
+html,
+body {
+  @apply bg-background h-[100dvh] w-[100dvw] antialiased dark:[color-scheme:dark];
+}
+
+#main {
+  @apply flex h-full flex-1 flex-col;
 }
 
 .animate-expand {
-  animation: expand 2s ease-in-out infinite;
-}
-
-@keyframes rotating {
-  from {
-    /* The cube is moved backward by its half-size (via --translateZ)
-       then rotated from 0deg on both axes. */
-    transform: translateZ(calc(var(--translateZ) * -1)) rotateY(0deg)
-      rotateX(0deg);
-  }
-  to {
-    /* A full 360deg rotation on both the Y and X axes. */
-    transform: translateZ(calc(var(--translateZ) * -1)) rotateY(360deg)
-      rotateX(360deg);
-  }
+  animation: var(--animate-expand);
 }
 
 .animate-rotating {
-  animation: rotating 40s linear infinite;
+  animation: var(--animate-rotating);
 }

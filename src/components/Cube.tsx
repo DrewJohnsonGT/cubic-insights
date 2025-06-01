@@ -49,7 +49,7 @@ export const Cube = ({
           <div
             key={position}
             className={cn(
-              'absolute flex size-(--cubeSize) items-center justify-center border border-foreground',
+              'border-foreground absolute flex size-(--cubeSize) items-center justify-center border',
               sideClasses[position as keyof typeof sideClasses],
             )}
           />

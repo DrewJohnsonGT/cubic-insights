@@ -26,7 +26,7 @@ const Section = ({
   <section id={id} className="w-full py-12">
     <h2 className="mb-2 text-center text-4xl font-bold">{title}</h2>
     {description && (
-      <p className="mx-auto mb-8 max-w-md text-center text-lg text-muted-foreground">
+      <p className="text-muted-foreground mx-auto mb-8 max-w-md text-center text-lg">
         {description}
       </p>
     )}
@@ -43,7 +43,7 @@ export default function HomePage() {
         <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden">
           <div className="bg-pattern"></div>
 
-          <div className="relative my-32 flex flex-col items-center gap-20 bg-background/10 p-10 px-12 backdrop-blur-sm md:flex-row">
+          <div className="bg-background/10 relative my-32 flex flex-col items-center gap-20 p-10 px-12 backdrop-blur-sm md:flex-row">
             <ParticleBackground />
             <div className="flex w-full items-center gap-4">
               <div className="flex flex-col gap-20 text-center sm:flex-row">
@@ -52,15 +52,15 @@ export default function HomePage() {
                     <Cube
                       key={i}
                       size={`${STARTING_CUBE_SIZE + i * CUBE_SIZE_DIFFERENCE}rem`}
-                      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+                      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                     />
                   ))}
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h1 className="font-['Qube'] text-4xl font-bold leading-none text-foreground drop-shadow-[0px_0px_16px_hsl(var(--foreground))] sm:text-7xl">
+                  <h1 className="text-foreground font-['Qube'] text-4xl leading-none font-bold drop-shadow-[0px_0px_16px_hsl(var(--foreground))] sm:text-7xl">
                     {APP_NAME}
                   </h1>
-                  <h2 className="text-lg font-bold italic leading-none sm:text-2xl">
+                  <h2 className="text-lg leading-none font-bold italic sm:text-2xl">
                     {APP_SLOGAN}
                   </h2>
                 </div>
@@ -69,7 +69,7 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="bg-radial w-full">
+        <div className="w-full bg-radial">
           <div className="flex flex-col items-center justify-center">
             <Section
               id="products"

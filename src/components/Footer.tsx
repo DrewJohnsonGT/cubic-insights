@@ -27,7 +27,7 @@ export const Footer = () => (
         <a
           key={link.href}
           href={link.href}
-          className="text-xs underline-offset-4 hover:text-link hover:underline"
+          className="hover:text-link text-xs underline-offset-4 hover:underline"
           aria-label={link.label}
           target="_blank"
           rel="noreferrer"

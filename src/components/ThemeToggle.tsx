@@ -36,14 +36,14 @@ export const ThemeToggle = () => {
         className={cn(
           'size-[1.2rem] transition-transform duration-300',
           resolvedTheme === 'light'
-            ? 'rotate-0 scale-100'
-            : '-rotate-90 scale-0',
+            ? 'scale-100 rotate-0'
+            : 'scale-0 -rotate-90',
         )}
       />
       <RxMoon
         className={cn(
           'absolute size-[1.2rem] transition-transform duration-300',
-          resolvedTheme === 'dark' ? 'rotate-0 scale-100' : 'rotate-90 scale-0',
+          resolvedTheme === 'dark' ? 'scale-100 rotate-0' : 'scale-0 rotate-90',
         )}
       />
     </Button>

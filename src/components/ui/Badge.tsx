@@ -4,7 +4,7 @@ import { cva } from 'class-variance-authority';
 import { cn } from '~/utils/cn';
 
 export const badgeVariants = cva(
-  'inline-flex items-center rounded-md border border-border font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2',
+  'border-border focus:ring-ring inline-flex items-center rounded-md border font-semibold transition-colors focus:ring-2 focus:ring-offset-2 focus:outline-none',
   {
     defaultVariants: {
       size: 'md',
@@ -19,11 +19,11 @@ export const badgeVariants = cva(
       variant: {
         default: 'bg-card text-card-foreground',
         primary:
-          'border border-primary-foreground bg-primary text-primary-foreground',
+          'border-primary-foreground bg-primary text-primary-foreground border',
         destructive: 'bg-destructive text-destructive-foreground',
         outline: 'text-foreground',
         secondary: 'bg-input-background text-foreground',
-        success: 'border border-success bg-success/20 text-success',
+        success: 'border-success bg-success/20 text-success border',
         warning: 'border-amber-500 bg-amber-500/30',
       },
     },

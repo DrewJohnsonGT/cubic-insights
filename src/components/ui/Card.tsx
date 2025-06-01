@@ -7,7 +7,7 @@ const Card: React.FC<React.ComponentProps<'div'>> = ({
 }) => (
   <div
     className={cn(
-      'flex flex-col rounded-lg border bg-card text-card-foreground',
+      'bg-card text-card-foreground flex flex-col rounded-lg border',
       className,
     )}
     {...props}
@@ -27,7 +27,7 @@ const CardTitle: React.FC<React.ComponentProps<'h3'>> = ({
 }) => (
   <h3
     className={cn(
-      'text-2xl font-semibold leading-none tracking-tight',
+      'text-2xl leading-none font-semibold tracking-tight',
       className,
     )}
     {...props}
@@ -38,7 +38,7 @@ const CardDescription: React.FC<React.ComponentProps<'p'>> = ({
   className,
   ...props
 }) => (
-  <p className={cn('text-sm text-muted-foreground', className)} {...props} />
+  <p className={cn('text-muted-foreground text-sm', className)} {...props} />
 );
 
 const CardContent: React.FC<React.ComponentProps<'div'>> = ({

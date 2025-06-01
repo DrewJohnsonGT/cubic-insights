@@ -34,7 +34,7 @@ function ProductCard({ name, description, images, href }: Product) {
     <Card className="mx-auto max-w-4xl overflow-hidden transition-all duration-300 hover:shadow-lg">
       <div className="flex flex-col items-center gap-4">
         <CardHeader className="w-full p-0">
-          <CardTitle className="inset-0 bg-linear-to-r from-primary/20 via-background to-primary/20 py-8 text-center text-3xl font-bold text-primary">
+          <CardTitle className="from-primary/20 via-background to-primary/20 text-primary inset-0 bg-linear-to-r py-8 text-center text-3xl font-bold">
             {name}
           </CardTitle>
         </CardHeader>
@@ -42,7 +42,7 @@ function ProductCard({ name, description, images, href }: Product) {
         <CardContent className="flex max-w-2xl flex-1 flex-col gap-4 px-8">
           {description.map((paragraph, index) => (
             <p
-              className="text-lg leading-relaxed text-muted-foreground"
+              className="text-muted-foreground text-lg leading-relaxed"
               key={index}
             >
               {paragraph}
@@ -57,7 +57,7 @@ function ProductCard({ name, description, images, href }: Product) {
 
         {images.length > 0 && (
           <div className="w-full max-w-2xl px-8 pb-8">
-            <div className="overflow-hidden rounded-lg border-2 border-border shadow-md">
+            <div className="border-border overflow-hidden rounded-lg border-2 shadow-md">
               {images.map(({ light, dark }, index) => (
                 <div key={index} className="relative">
                   <Image

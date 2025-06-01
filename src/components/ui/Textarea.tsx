@@ -27,7 +27,7 @@ const Textarea: React.FC<React.ComponentProps<'textarea'>> = ({
       <textarea
         className={cn(
           sharedInputClasses,
-          'flex min-h-[80px] data-[placeholder]:text-muted-foreground',
+          'data-[placeholder]:text-muted-foreground flex min-h-[80px]',
           className,
         )}
         {...props}
@@ -36,7 +36,7 @@ const Textarea: React.FC<React.ComponentProps<'textarea'>> = ({
         maxLength={maxLength}
       />
       {maxLength !== undefined && (
-        <div className="absolute bottom-1 right-2 rounded bg-background/10 px-1 py-0.5 text-xs text-muted-foreground backdrop-blur-[2px]">
+        <div className="bg-background/10 text-muted-foreground absolute right-2 bottom-1 rounded px-1 py-0.5 text-xs backdrop-blur-[2px]">
           {value.length}/{maxLength}
         </div>
       )}

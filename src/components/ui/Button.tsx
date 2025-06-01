@@ -6,7 +6,7 @@ import { cva } from 'class-variance-authority';
 import { cn } from '~/utils/cn';
 
 const buttonVariants = cva(
-  'inline-flex cursor-pointer items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
+  'focus-visible:ring-ring inline-flex cursor-pointer items-center justify-center rounded-md text-sm font-medium whitespace-nowrap transition-colors focus-visible:ring-1 focus-visible:outline-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50',
   {
     compoundVariants: [
       {
@@ -45,14 +45,14 @@ const buttonVariants = cva(
       },
       variant: {
         ghost:
-          'border-none bg-transparent text-foreground shadow-none hover:bg-accent hover:text-accent-foreground',
-        link: 'm-0 break-words p-0 text-link underline-offset-4 hover:underline',
+          'text-foreground hover:bg-accent hover:text-accent-foreground border-none bg-transparent shadow-none',
+        link: 'text-link m-0 p-0 break-words underline-offset-4 hover:underline',
         outline:
-          'border border-border bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground',
+          'border-border hover:bg-accent hover:text-accent-foreground border bg-transparent shadow-sm',
         primary:
-          'border border-primary bg-primary text-primary-foreground shadow hover:border-primary-foreground hover:bg-primary/90',
+          'border-primary bg-primary text-primary-foreground hover:border-primary-foreground hover:bg-primary/90 border shadow',
         secondary:
-          'border border-border bg-input-background text-foreground shadow-sm hover:border-primary hover:bg-accent hover:text-primary',
+          'border-border bg-input-background text-foreground hover:border-primary hover:bg-accent hover:text-primary border shadow-sm',
       },
     },
   },

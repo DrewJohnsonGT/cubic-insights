@@ -144,13 +144,13 @@ export const ContactForm = () => {
         </Form>
       )}
       {submitError && (
-        <div className="text-sm font-medium text-destructive">
+        <div className="text-destructive text-sm font-medium">
           {submitError}
         </div>
       )}
 
       {submitSuccess && (
-        <div className="text-center text-sm font-medium text-success">
+        <div className="text-success text-center text-sm font-medium">
           Thank you for your message! We&apos;ll get back to you soon.
         </div>
       )}

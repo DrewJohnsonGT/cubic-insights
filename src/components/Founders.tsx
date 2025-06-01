@@ -53,7 +53,7 @@ function FounderCard({
   return (
     <Card className="mx-auto max-w-md overflow-hidden rounded-lg border-none bg-transparent shadow-none">
       <div className="relative h-64 w-full">
-        <div className="absolute bottom-0 z-0 size-[200px] w-full bg-primary" />
+        <div className="bg-primary absolute bottom-0 z-0 size-[200px] w-full" />
         <div className="relative z-10">
           <Image
             src={image.src}
@@ -77,7 +77,7 @@ function FounderCard({
             <Button
               variant="ghost"
               size="icon"
-              className="text-[#0077b5] hover:bg-muted hover:text-[#0077b5]"
+              className="hover:bg-muted text-[#0077b5] hover:text-[#0077b5]"
               aria-label={`LinkedIn of ${name}`}
             >
               <FaLinkedin className="size-6" />
@@ -85,7 +85,7 @@ function FounderCard({
           </a>
         </CardTitle>
       </CardHeader>
-      <CardContent className="flex-1 bg-card p-4">
+      <CardContent className="bg-card flex-1 p-4">
         {content.map((paragraph, index) => (
           <p className="mb-4" key={index}>
             {paragraph}

@@ -12,8 +12,8 @@ export const Error = ({
   return (
     <div className="flex flex-1 flex-col items-center justify-center p-4 text-center">
       <div className="max-w-md space-y-6">
-        <h1 className="text-6xl font-bold text-primary">Oops!</h1>
-        <p className="text-2xl font-semibold text-primary">
+        <h1 className="text-primary text-6xl font-bold">Oops!</h1>
+        <p className="text-primary text-2xl font-semibold">
           Something went wrong.
         </p>
         <p className="text-muted-foreground">
@@ -25,7 +25,7 @@ export const Error = ({
           .
         </p>
         {error.message && (
-          <pre className="max-h-48 overflow-y-auto text-wrap rounded-md border border-dashed border-destructive bg-muted p-4 text-left text-destructive">
+          <pre className="border-destructive bg-muted text-destructive max-h-48 overflow-y-auto rounded-md border border-dashed p-4 text-left text-wrap">
             {error.message}
           </pre>
         )}
