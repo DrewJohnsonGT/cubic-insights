@@ -10,7 +10,7 @@ import {
 } from '~/utils/constants';
 import { IMAGES } from '~/utils/images';
 
-import './globals.css';
+import '~/globals.css';
 
 export const metadata: Metadata = {
   alternates: {

@@ -6,11 +6,9 @@
   --cubeSize: 200px;
   --translateZ: calc(var(--cubeSize) / 2);
 
-  /* Animation variables */
   --animate-expand: expand 2s ease-in-out infinite;
   --animate-rotating: rotating 40s linear infinite;
 
-  /* Theme color variables (hsl references) */
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
@@ -44,12 +42,10 @@
   --color-chart-yellow: hsl(var(--chart-yellow));
   --color-chart-purple: hsl(var(--chart-purple));
 
-  /* Radius variables */
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
 
-  /* Example shadow variables */
   --shadow-normal: 0px 1px 2px 0px rgba(35, 31, 50, 0.07);
 
   @keyframes expand {
